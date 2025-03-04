@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            width: 300px;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .clear-btn {
+            background: #dc3545;
+        }
+        .clear-btn:hover {
+            background: #a71d2a;
+        }
+        .comments {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .comment {
+            background: #e9ecef;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter Your Text</h2>
+        <input type="text" id="userInput" placeholder="Type something...">
+        <br>
+        <button onclick="submitText()">Submit</button>
+        <button class="clear-btn" onclick="clearText()">Clear</button>
+        <div class="comments" id="comments"></div>
+    </div>
+
+    <script>
+        function submitText() {
+            let input = document.getElementById("userInput").value;
+            if (input.trim() === "") return;
+            let commentSection = document.getElementById("comments");
+            let newComment = document.createElement("div");
+            newComment.className = "comment";
+            newComment.innerText = input;
+            commentSection.prepend(newComment);
+            document.getElementById("userInput").value = "";
+        }
+
+        function clearText() {
+            document.getElementById("userInput").value = "";
+        }
+    </script>
+</body>
+</html>

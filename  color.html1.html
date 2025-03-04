@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Color Generator</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #c0d1f5;
+}
+
+.container {
+    text-align: center;
+}
+
+#colorBox {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    margin: 20px auto;
+    background-color: #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.color-code {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #0e2843;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div  id="colorBox"></div>
+        <p class="color-code" id="colorCode">Click the button to generate a random color</p>
+        <button class="btn" onclick="generateColor()">Generate Color</button>
+    </div>
+    <script>
+function generateColor() {
+    const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+    document.getElementById('colorBox').style.backgroundColor = randomColor;
+    document.getElementById('colorCode').textContent = randomColor.toUpperCase();
+}
+    </script>
+</body>
+</html>
